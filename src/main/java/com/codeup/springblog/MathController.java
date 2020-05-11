@@ -9,25 +9,32 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class MathController {
 
-    @GetMapping("/add/{numberOne}+{numberTwo}") // 2. GET request at this url
+
+    @GetMapping("/math")
+    @ResponseBody
+    public String home(){
+        return "This is the Math Page.";
+    }
+
+    @GetMapping("math/add/{numberOne}+{numberTwo}") // 2. GET request at this url
     @ResponseBody // 3. Return HTML
     public String add(@PathVariable int numberOne, @PathVariable int numberTwo ){
         return numberOne + " + " + numberTwo + " = " + (numberOne + numberTwo);
     }
 
-    @GetMapping("/subtract/{numberOne}-{numberTwo}") // 2. GET request at this url
+    @GetMapping("math/subtract/{numberOne}-{numberTwo}") // 2. GET request at this url
     @ResponseBody // 3. Return HTML
     public String subtract(@PathVariable int numberOne, @PathVariable int numberTwo ){
         return numberOne + " - " + numberTwo + " = " + (numberOne - numberTwo);
     }
 
-    @GetMapping("/multiply/{numberOne}x{numberTwo}") // 2. GET request at this url
+    @GetMapping("math/multiply/{numberOne}x{numberTwo}") // 2. GET request at this url
     @ResponseBody // 3. Return HTML
     public String multiply(@PathVariable int numberOne, @PathVariable int numberTwo ){
         return numberOne + " * " + numberTwo + " = " + (numberOne * numberTwo);
     }
 
-    @GetMapping("/divide/{numberOne}/{numberTwo}") // 2. GET request at this url
+    @GetMapping("math/divide/{numberOne}/{numberTwo}") // 2. GET request at this url
     @ResponseBody // 3. Return HTML
     public String divide(@PathVariable int numberOne, @PathVariable int numberTwo ){
         return numberOne + " / " + numberTwo + " = " + (numberOne / numberTwo);

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+    <meta charset="UTF-8">
+    <title>Roll Dice</title>
+</head>
+<body>
+
+<nav th:replace="partials :: navbar"></nav>
+<hr>
+
+<h1>Dice Roll Simulator</h1>
+
+<!--SHOW IF USER HAS NOT ROLLED-->
+<h3 th:if="${!hasRolled}"> Select a Number</h3>
+
+<!--SHOW IF USER HAS ROLLED-->
+<h3 th:if="${hasRolled}" th:text="${randomNumber}"></h3>
+<h3 th:if="${hasRolled}" th:text="${userGuess}"></h3>
+<h3 th:if="${hasRolled}" th:text="${message}"></h3>
+
+
+<!--SHOW IF USER HAS NOT ROLLED-->
+<div th:if="${!hasRolled}">
+    <a href="/roll-dice/1"><input type="submit" name="One" value="One"></a>
+    <a href="/roll-dice/2"><input type="submit" name="Two" value="Two"></a>
+    <a href="/roll-dice/3"><input type="submit" name="Three" value="Three"></a>
+    <a href="/roll-dice/4"><input type="submit" name="Four" value="Four"></a>
+    <a href="/roll-dice/5"><input type="submit" name="Five" value="Five"></a>
+    <a href="/roll-dice/6"><input type="submit" name="Six" value="Six"></a>
+</div>
+
+<!--SHOW IF USER HAS ROLLED-->
+<div th:if="${hasRolled}">
+    <a href="/roll-dice/"><input type="submit" name="guessAgain" value="Guess Again"></a>
+</div>
+
+<hr>
+<nav th:replace="partials :: footer"></nav>
+
+</body>
+</html>
