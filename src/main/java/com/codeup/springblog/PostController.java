@@ -43,42 +43,36 @@ public class PostController {
 
     // --------- CREATE ------------
     @GetMapping("/posts/create") // 1. GET
-    @ResponseBody // 2 . Return HTML
     public String postCreateForm( Model model ) {
-        return "/posts/{id}/delete";
+        return "/posts/create";
     }
 
     @PostMapping("/posts/create") // 1. POST
-    @ResponseBody // 2 . Return HTML
     public String postCreate( Model model ) {
-        return "/posts/{id}/delete";
+        return "/posts/create";
     }
 
 
     // --------- EDIT------------
     @GetMapping("/posts/{id}/edit") // 1. GET
-    @ResponseBody // 2 . Return HTML
     public String postEditForm(@PathVariable int id, Model model) {
-        return "/posts/{id}/delete";
+        return "/posts/{id}/edit";
     }
 
     @PostMapping("/posts/{id}/edit") // 1. POST
-    @ResponseBody // 2 . Return HTML
     public String postEdit(@PathVariable int id, Model model) {
-        return "/posts/{id}/delete";
+        return "/posts/{id}/edit";
     }
 
 
     // --------- DELETE ------------
     @GetMapping("/posts/{id}/delete") // 1. GET
-    @ResponseBody // 2 . Return HTML
     public String postDeleteForm(@PathVariable int id, Model model) {
         return "/posts/{id}/delete";
     }
 
     @PostMapping("/posts/{id}/delete") // 1. POST
-    @ResponseBody // 2 . Return HTML
     public String postDelete(@PathVariable int id, Model model) {
-        return "delete a new post";
+        return "/posts/{id}/delete";
     }
 }

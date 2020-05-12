@@ -8,6 +8,23 @@
 <!---------- NAVBAR ---------->
 <nav th:replace="partials :: navbar"></nav>
 
+<article>
+    <section>
+
+        <!---------- NEW POST FORM ---------->
+        <form action="/posts/create" method="post">
+
+            <label for="post-title">New Post Title</label>
+            <input type="text" id="post-title">
+
+            <label for="post-body">New Post Body</label>
+            <input type="text" id="post-body">
+
+            <button><a th:href="'/posts/'">Submit</a></button>
+        </form>
+
+    </section>
+</article>
 
 <!---------- FOOTER ---------->
 <nav th:replace="partials :: footer"></nav>

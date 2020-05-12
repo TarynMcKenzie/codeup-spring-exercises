@@ -8,16 +8,26 @@
 <!---------- NAVBAR ---------->
 <nav th:replace="partials :: navbar"></nav>
 
-<!---------- POSTS CONTAINER ---------->
-<div th:each="post : ${postList}">
-    <a th:href="@{'/posts/' + ${post.id}}">
-        <h1 th:text="${post.title}"></h1>
+<article>
+    <!---------- CREATE POST LINK ---------->
+    <section>
+        <h2>Want To Create a New Post?</h2>
+        <a href="/posts/create"><p>Create New Post</p></a>
+    </section>
+    <section>
+        <h2>Viewing All Posts</h2>
+        <!---------- POSTS CONTAINER ---------->
+        <div th:each="post : ${postList}">
+            <a th:href="@{'/posts/' + ${post.id}}">
+                <h1 th:text="${post.title}"></h1>
 
-        <button><a th:href="'/posts/' + ${post.id} + '/edit'">edit</a></button>
-        <button><a th:href="'/posts/' + ${post.id} + '/delete'">delete</a></button>
-    </a>
-</div>
+                <button><a th:href="'/posts/' + ${post.id} + '/edit'">edit</a></button>
+                <button><a th:href="'/posts/' + ${post.id} + '/delete'">delete</a></button>
+            </a>
+        </div>
 
+    </section>
+</article>
 
 <!---------- FOOTER ---------->
 <nav th:replace="partials :: footer"></nav>
