@@ -6,10 +6,12 @@
 
     <!--  CUSTOM CSS  -->
     <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
 
 </head>
 <body>
 
+<!--------MAIN NAV-------->
 <nav th:fragment="navbar" class="nav">
     <ul>
         <li><a href="/">Home</a></li>
@@ -28,8 +30,16 @@
 </nav>
 
 
-
-<nav th:fragment="footer">
+<!--------FOOTER NAV-------->
+<nav th:fragment="footer" class="footer">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/math">Math</a></li>
+        <li><a href="/posts">Blog</a></li>
+        <li><a href="/roll-dice">Dice Roll</a></li>
+    </ul>
+</nav>
+<nav th:fragment="footer" class="footer-mobile">
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/math">Math</a></li>

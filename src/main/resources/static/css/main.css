@@ -1,0 +1,12 @@
+.main-container{
+    padding: 0 10%;
+}
+
+#dice{
+    height: 50px;
+    width: auto;
+}
+.section-header{
+    font-size: 3em;
+    line-height: 1em;
+}

@@ -1,11 +1,14 @@
-body {
+html, body {
     margin: 0;
+    height: 100%;
 }
 
-/*------- NAVBAR(s) ------*/
+/*------- MAIN NAVBAR(s) ------*/
 .nav {
     display: block;
     background: lightgrey;
+    margin-bottom: 10%;
+    padding: 0 0  0 5%;
 }
 
 .nav ul {
@@ -18,7 +21,7 @@ body {
 
 .nav ul li {
     margin: 0 10px;
-    padding: 10px 10px;
+    padding: 15px 15px;
 }
 
 .nav ul li a {
@@ -34,11 +37,56 @@ body {
     display: none;
 }
 
+/*-------- FOOTER NAV --------*/
+.article-container{
+    position: relative;
+    min-height: 100%;
+}
+.section-container {
+    padding-bottom: 2.5rem;    /* Footer height */
+}
+
+.footer{
+    display: block;
+    background: dimgray;
+    padding: 5%;
+    margin-top: 10%;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    margin: 0 10px;
+    padding: 10px 10px;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer  ul li a:hover {
+    color: lightcoral;
+}
+
+.footer-mobile  {
+    display: none;
+}
+
 /************************************/
 /************ MOBILE VIEW ***********/
 /************************************/
 @media screen and (max-width: 44em) {
 
+    /*------- MAIN NAV ------*/
     .nav {
         display: none;
     }
@@ -67,4 +115,31 @@ body {
         color: black;
     }
 
+    /*-------- FOOTER NAV --------*/
+
+    .footer {
+        display: none;
+    }
+
+    .footer-mobile {
+        display: block;
+        background: dimgrey;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-mobile ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-mobile ul li {
+        margin: 4%;
+    }
+
+    .footer-mobile ul li a {
+        text-decoration: none;
+        color: black;
+    }
 }
