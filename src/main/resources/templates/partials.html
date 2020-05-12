@@ -3,11 +3,14 @@
 <head th:fragment="head">
     <meta charset="UTF-8">
     <title>Title</title>
+
     <!--  CUSTOM CSS  -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nav.css}">
+
 </head>
 <body>
 
-<nav th:fragment="navbar">
+<nav th:fragment="navbar" class="nav">
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/math">Math</a></li>
@@ -15,6 +18,15 @@
         <li><a href="/roll-dice">Dice Roll</a></li>
     </ul>
 </nav>
+<nav th:fragment="navbar-mobile" class="mobile-nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/math">Math</a></li>
+        <li><a href="/posts">Blog</a></li>
+        <li><a href="/roll-dice">Dice Roll</a></li>
+    </ul>
+</nav>
+
 
 
 <nav th:fragment="footer">
