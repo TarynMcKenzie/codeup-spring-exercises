@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+    <meta charset="UTF-8">
+    <title>Show Post</title>
+</head>
+<body>
+<!---------- NAVBAR ---------->
+<nav th:replace="partials :: navbar"></nav>
+
+<article>
+    <!---------- POST CONTAINER ---------->
+    <section>
+        <h1 th:text="${newPost.title}"></h1>
+        <p th:text="${newPost.body}"></p>
+        <p>Post id : <em th:text="${currentPost}"></em></p>
+    </section>
+</article>
+
+<!---------- FOOTER ---------->
+<nav th:replace="partials :: footer"></nav>
+</body>
+</html>

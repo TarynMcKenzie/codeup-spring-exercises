@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials :: head">
+    <meta charset="UTF-8">
+    <title>All Posts</title>
+</head>
+<body>
+<!---------- NAVBAR ---------->
+<nav th:replace="partials :: navbar"></nav>
+
+<!---------- POSTS CONTAINER ---------->
+<div th:each="post : ${postList}">
+    <a th:href="@{'/posts/' + ${post.id}}">
+        <h1 th:text="${post.title}"></h1>
+
+        <button><a th:href="'/posts/' + ${post.id} + '/edit'">edit</a></button>
+        <button><a th:href="'/posts/' + ${post.id} + '/delete'">delete</a></button>
+    </a>
+</div>
+
+
+<!---------- FOOTER ---------->
+<nav th:replace="partials :: footer"></nav>
+
+</body>
+</html>
