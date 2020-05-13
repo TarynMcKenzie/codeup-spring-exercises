@@ -9,19 +9,20 @@
 <nav th:replace="partials :: navbar"></nav>
 <nav th:replace="partials :: navbar-mobile"></nav>
 
-<article>
-    <section>
+<article class="main-container">
+    <section class="section-container">
 
         <!---------- NEW POST FORM ---------->
         <form action="/posts/create" method="post">
 
             <label for="post-title">New Post Title</label>
-            <input type="text" id="post-title">
+            <input type="text" id="post-title" name="title">
 
             <label for="post-body">New Post Body</label>
-            <input type="text" id="post-body">
+            <input type="text" id="post-body" name="body">
 
-            <button><a th:href="'/posts/'">Submit</a></button>
+            <button><a th:href="/posts/">Submit</a></button>
+            <button><a th:href="/posts/">Cancel</a></button>
         </form>
 
     </section>

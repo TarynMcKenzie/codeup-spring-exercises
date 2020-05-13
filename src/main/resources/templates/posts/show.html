@@ -10,9 +10,9 @@
 <nav th:replace="partials :: navbar"></nav>
 <nav th:replace="partials :: navbar-mobile"></nav>
 
-<article>
+<article class="main-container">
     <!---------- POST CONTAINER ---------->
-    <section>
+    <section class="section-container">
         <h1 th:text="${newPost.title}"></h1>
         <p th:text="${newPost.body}"></p>
         <p>Post id : <em th:text="${currentPost}"></em></p>

@@ -20,9 +20,9 @@
 
         <!--SHOW IF USER HAS ROLLED-->
         <h2 th:if="${hasRolled}">Your Results</h2>
-        <h3 th:if="${hasRolled}">Your Guess</h3>
+        <h3 th:if="${hasRolled}">You guessed </h3>
         <h3 th:if="${hasRolled}" th:text="${userGuess}"></h3>
-        <h3 th:if="${hasRolled}">Dice Roll</h3>
+        <h3 th:if="${hasRolled}">The Dealer rolled </h3>
         <h3 th:if="${hasRolled}" th:text="${randomNumber}"></h3>
         <h3 th:if="${hasRolled}" th:text="${message}"></h3>
 

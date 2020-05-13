@@ -9,9 +9,9 @@
 <nav th:replace="partials :: navbar"></nav>
 <nav th:replace="partials :: navbar-mobile"></nav>
 
-<article>
+<article class="main-container">
     <!---------- CREATE POST LINK ---------->
-    <section>
+    <section class="section-container">
         <h2>Want To Create a New Post?</h2>
         <a href="/posts/create"><p>Create New Post</p></a>
     </section>
@@ -19,7 +19,7 @@
         <h2>Viewing All Posts</h2>
         <!---------- POSTS CONTAINER ---------->
         <div th:each="post : ${postList}">
-            <a th:href="@{'/posts/' + ${post.id}}">
+            <a th:href="@{'/posts/' + ${post.getId()}}">
                 <h1 th:text="${post.title}"></h1>
 
                 <button><a th:href="'/posts/' + ${post.id} + '/edit'">edit</a></button>

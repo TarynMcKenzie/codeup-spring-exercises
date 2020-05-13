@@ -1,34 +1,49 @@
-package com.codeup.springblog;
+package com.codeup.springblog.models;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="posts")
 public class Post {
     // --------------------------------------------
     // -------------------BEAN---------------------
     // --------------------------------------------
 
     // ---------- INITIALIZE -----------
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(nullable = false, length = 100)
     private String title;
+
+    @Column(nullable = false)
     private String body;
-    private int id;
 
 
     // ---------- CONSTRUCTOR METHOD(S) -----------
+    public Post() {}
+
     public Post(String title, String body) {
         this.title = title;
         this.body = body;
     }
 
-    public Post(int id, String title, String body) {
+    public Post(long id, String title, String body) {
+        this.id = id;
         this.title = title;
         this.body = body;
     }
 
 
     // ---------- GET AND SET METHODS -----------
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
