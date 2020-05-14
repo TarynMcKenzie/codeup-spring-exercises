@@ -22,6 +22,7 @@
         <div th:each="post : ${posts}">
 
             <a th:href="@{|/posts/${post.getId()}|}" ><h1 th:text="${post.title}"></h1></a>
+            <p th:text="${#strings.abbreviate(post.body,150)} "></p>
 
         </div>
 

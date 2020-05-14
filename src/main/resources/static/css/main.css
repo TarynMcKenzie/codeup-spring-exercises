@@ -1,5 +1,8 @@
 .main-container{
-    padding: 0 10%;
+    height: 40%;
+    width: 80%;
+    margin: 10% 10%;
+    font-family: 'Lato', sans-serif;
 }
 
 #dice{
@@ -7,6 +10,12 @@
     width: auto;
 }
 .section-header{
-    font-size: 3em;
-    line-height: 1em;
+    width: 70%;
+    margin: 0 0;
+
+    font-size: calc(50px + (100 - 50) * ((100vw - 300px) / (1600 - 300)));
+    /*font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));*/
+    color: var(--maroon-color);
+    font-family: 'DM Serif Text', serif;
+    line-height: calc(50px + (111 - 50) * ((100vw - 300px) / (1600 - 300)));
 }
