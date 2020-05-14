@@ -15,7 +15,7 @@ import java.util.List;
 @Controller
 public class PostController {
 
-    // --------- INTIALIZE ------------
+    // --------- INITIALIZE ------------
     private PostRepository postRepo;
 
     // --------- CONSTRUCTOR METHOD ------------
@@ -27,34 +27,16 @@ public class PostController {
     @GetMapping("/posts") // 1. GET
     public String getPosts(Model model) {
 
-        ArrayList<Post> postList = new ArrayList<>(); // New instance of an ArrayList
-
-        Post likes = new Post(1, "What I like", "I like to sleep allllll day. Thanks for reading!"); // create new post object with dummy data
-        postList.add(likes); // add dummy data to the ArrayList
-
-        Post dislikes = new Post(1, "What I do not like", "I do not like to wake up early. Thanks for reading!"); // create new post object with dummy data
-        postList.add(dislikes); // add dummy data to the ArrayList
-
-        model.addAttribute("postList", postList);// Pass the ArrayList to the html
-
-
-
-        String html = "<div class='post-card'>";
-        for (Post post: this.postRepo.findAll()){
-            html +=  "<h2>" + post.getTitle() + "</h2><p>" + post.getBody() + "</p></div>";
-        }
-
+        model.addAttribute("posts", postRepo.findAll()); // Place all the ads on the page
 
         return "/posts/index";
     }
 
     // --------- INDIVIDUAL POST VIEW ------------
     @GetMapping("/posts/{id}") // 1. GET
-    public String getPostById(@PathVariable int id, Model model) {
-        model.addAttribute("currentPost", id);
+    public String getPostById(@PathVariable long id, Model model) {
 
-        Post newPost = new Post("newTitle", "The Description"); // Create a new post object
-        model.addAttribute("newPost", newPost); // Pass the post object to the HTML
+        model.addAttribute("currentPost", postRepo.getOne(id)); // find the ad by its id
 
         return "/posts/show";
     }
@@ -63,41 +45,57 @@ public class PostController {
     // --------- CREATE ------------
     @GetMapping("/posts/create") // 1. GET
     public String postCreateForm( Model model ) {
+
+        model.addAttribute("post", new Post());
+
         return "/posts/create";
     }
 
     @PostMapping("/posts/create") // 1. POST
     public String createNewPost( @RequestParam(name = "title") String title, @RequestParam(name = "body") String body) {
 
-        Post post = new Post(); // create a new post instance
-        post.setTitle(title); // set the new post's title
-        post.setBody(body); // set the new post's body
+        Post post = new Post(title, body); // create a new post instance with title and body param
 
-        this.postRepo.save(post); // Save the new post
-        return "/posts/create";
+        postRepo.save(post); // Save the new post
+
+        return "redirect:/posts";
     }
 
 
     // --------- EDIT------------
     @GetMapping("/posts/{id}/edit") // 1. GET
-    public String postEditForm(@PathVariable int id, Model model) {
-        return "/posts/{id}/edit";
+    public String postEditForm(@PathVariable long id, Model model) {
+
+        Post post = postRepo.getPostById(id);
+        model.addAttribute("post", post);
+
+        return "/posts/edit";
     }
 
     @PostMapping("/posts/{id}/edit") // 1. POST
-    public String postEdit(@PathVariable int id, Model model) {
-        return "/posts/{id}/edit";
+    public String postEdit(@PathVariable long id, @RequestParam(name = "title") String title, @RequestParam(name = "body") String body) {
+
+        Post post = postRepo.getPostById(id); // get the id of the post
+        post.setTitle(title);
+        post.setBody(body);
+
+        postRepo.save(post); // Edit the new post
+
+        return "redirect:/posts";
     }
 
 
     // --------- DELETE ------------
     @GetMapping("/posts/{id}/delete") // 1. GET
-    public String postDeleteForm(@PathVariable int id, Model model) {
-        return "/posts/{id}/delete";
+    public String postDeleteForm(@PathVariable long id, Model model) {
+        return "/posts/delete";
     }
 
     @PostMapping("/posts/{id}/delete") // 1. POST
-    public String postDelete(@PathVariable int id, Model model) {
-        return "/posts/{id}/delete";
+    public String postDelete(@PathVariable long id) {
+
+        postRepo.deleteById(id); // Delete the new post
+
+        return "redirect:/posts";
     }
 }

@@ -17,14 +17,12 @@
     </section>
     <section>
         <h2>Viewing All Posts</h2>
-        <!---------- POSTS CONTAINER ---------->
-        <div th:each="post : ${postList}">
-            <a th:href="@{'/posts/' + ${post.getId()}}">
-                <h1 th:text="${post.title}"></h1>
 
-                <button><a th:href="'/posts/' + ${post.id} + '/edit'">edit</a></button>
-                <button><a th:href="'/posts/' + ${post.id} + '/delete'">delete</a></button>
-            </a>
+        <!---------- POSTS CONTAINER ---------->
+        <div th:each="post : ${posts}">
+
+            <a th:href="@{|/posts/${post.getId()}|}" ><h1 th:text="${post.title}"></h1></a>
+
         </div>
 
     </section>

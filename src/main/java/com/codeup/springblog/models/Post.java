@@ -1,7 +1,5 @@
 package com.codeup.springblog.models;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import javax.persistence.*;
 
 @Entity
@@ -19,7 +17,7 @@ public class Post {
     @Column(nullable = false, length = 100)
     private String title;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
 
 

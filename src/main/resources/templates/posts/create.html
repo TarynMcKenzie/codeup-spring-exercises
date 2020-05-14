@@ -5,6 +5,7 @@
     <title>Create</title>
 </head>
 <body>
+
 <!---------- NAVBAR ---------->
 <nav th:replace="partials :: navbar"></nav>
 <nav th:replace="partials :: navbar-mobile"></nav>
@@ -13,17 +14,20 @@
     <section class="section-container">
 
         <!---------- NEW POST FORM ---------->
-        <form action="/posts/create" method="post">
+        <form method="post" th:action="@{/posts/create}" th:object="${post}">
 
             <label for="post-title">New Post Title</label>
-            <input type="text" id="post-title" name="title">
+            <input  th:field="*{title}" type="text" id="post-title" name="title">
 
             <label for="post-body">New Post Body</label>
-            <input type="text" id="post-body" name="body">
+            <textarea th:field="*{body}" id="post-body" name="body"></textarea>
 
-            <button><a th:href="/posts/">Submit</a></button>
-            <button><a th:href="/posts/">Cancel</a></button>
+            <button>Submit</button>
+
         </form>
+
+        <a th:href="@{/posts/}"><button>Cancel</button></a>
+
 
     </section>
 </article>

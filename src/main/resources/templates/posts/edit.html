@@ -6,5 +6,32 @@
 </head>
 <body>
 
+<!---------- NAVBAR ---------->
+<nav th:replace="partials :: navbar"></nav>
+<nav th:replace="partials :: navbar-mobile"></nav>
+
+<article class="main-container">
+    <section class="section-container">
+
+        <!---------- NEW POST FORM ---------->
+        <form method="POST" th:action="@{'/posts/' + ${post.getId()} + '/edit'}" th:object="${post}">
+
+            <label for="title">Edit Post Title</label>
+            <input type="text" id="title" name="title" th:value="${post.title}">
+
+            <label for="body">Edit Post Body</label>
+            <textarea id="body" name="body" th:text="${post.body}"></textarea>
+
+            <button type="submit">Submit</button>
+
+        </form>
+
+        <a th:href="@{/posts/}"><button>Cancel</button></a>
+    </section>
+</article>
+
+<!---------- FOOTER ---------->
+<nav th:replace="partials :: footer"></nav>
+
 </body>
 </html>

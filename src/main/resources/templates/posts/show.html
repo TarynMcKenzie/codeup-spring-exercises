@@ -13,9 +13,22 @@
 <article class="main-container">
     <!---------- POST CONTAINER ---------->
     <section class="section-container">
-        <h1 th:text="${newPost.title}"></h1>
-        <p th:text="${newPost.body}"></p>
-        <p>Post id : <em th:text="${currentPost}"></em></p>
+
+        <div th:object="${currentPost}">
+
+            <h1 th:text="${currentPost.title}"></h1>
+            <p th:text="${currentPost.body}"></p>
+
+            <p>Post id: <em th:text="${currentPost.id}"></em></p>
+
+            <form method="get" th:action="@{'/posts/' + ${currentPost.getId()} + '/edit'}">
+                <button type="submit">edit</button>
+            </form>
+            <form method="post" th:action="@{'/posts/' + ${currentPost.getId()} + '/delete'}">
+                <button type="submit">delete</button>
+            </form>
+        </div>
+
     </section>
 </article>
 

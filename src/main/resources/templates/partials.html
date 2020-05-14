@@ -11,38 +11,49 @@
 </head>
 <body>
 
-<!--------MAIN NAV-------->
-<nav th:fragment="navbar" class="nav">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/posts">Blog</a></li>
+<nav th:fragment="navbar">
+    <ul class="main-nav">
+        <li class="left"><a href="index.html">Taryn McKenzie</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
-<nav th:fragment="navbar-mobile" class="mobile-nav">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/posts">Blog</a></li>
-    </ul>
+<nav th:fragment="navbar-mobile" class="mobilescreen">
+    <div title="Menu" id="menuToggle">
+        <input type="checkbox">
+        <!-- LINES FOR MENU -->
+        <span></span>
+        <span></span>
+        <span></span>
+        <!-- NAV ON CLICK -->
+        <ul id="menu">
+            <li><a href="index.html">Taryn McKenzie</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
 </nav>
 
 
 <!--------FOOTER NAV-------->
-<nav th:fragment="footer" class="footer">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/math">Math</a></li>
-        <li><a href="/posts">Blog</a></li>
-        <li><a href="/roll-dice">Dice Roll</a></li>
-    </ul>
-</nav>
-<nav th:fragment="footer" class="footer-mobile">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/math">Math</a></li>
-        <li><a href="/posts">Blog</a></li>
-        <li><a href="/roll-dice">Dice Roll</a></li>
-    </ul>
-</nav>
+<footer th:fragment="footer" class="section">
+    <nav class="footer-nav">
+        <ul class="nav-left">
+            <li><a href="#">Github</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Codepen</a></li>
+            <li><a href="#">Dribble</a></li>
+        </ul>
+        <ul class="nav-right">
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</footer>
+
 
 </body>
 </html>
