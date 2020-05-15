@@ -16,17 +16,25 @@
 
         <div th:object="${currentPost}">
 
-            <h1 th:text="${currentPost.title}"></h1>
-            <p th:text="${currentPost.body}"></p>
+            <h1 class="section-header" th:text="${currentPost.title}"></h1>
 
+            <p id="author">Written by <strong th:text="${currentPost.getUser().getUsername()}"></strong></p>
+            <p id="published">Published on <strong th:text="${currentPost.getUser().getUsername()}"></strong></p>
+
+            <div id="content-body">
+                <p th:text="${currentPost.body}"></p>
+            </div>
             <p>Post id: <em th:text="${currentPost.id}"></em></p>
 
-            <form method="get" th:action="@{'/posts/' + ${currentPost.getId()} + '/edit'}">
-                <button type="submit">edit</button>
-            </form>
-            <form method="post" th:action="@{'/posts/' + ${currentPost.getId()} + '/delete'}">
-                <button type="submit">delete</button>
-            </form>
+
+            <div id="button-group">
+                <form method="get" th:action="@{'/posts/' + ${currentPost.getId()} + '/edit'}">
+                    <button type="submit" id="edit-btn">edit</button>
+                </form>
+                <form method="post" th:action="@{'/posts/' + ${currentPost.getId()} + '/delete'}">
+                    <button type="submit" id="delete-btn">delete</button>
+                </form>
+            </div>
         </div>
 
     </section>

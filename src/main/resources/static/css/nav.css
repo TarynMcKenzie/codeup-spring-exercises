@@ -11,7 +11,6 @@
 
 html, body {
     margin: 0;
-    height: 100%;
     background: var(--yellowTan-color);
     text-rendering: optimizeLegibility;
 }
@@ -82,43 +81,12 @@ nav.footer-nav ul li {
 /*---------------------------------------------------------*/
 @media screen and (max-width: 44em) {
 
-    /*-------- FOOTER NAV --------*/
-    .footer {
-        display: none;
-    }
-
-    .footer-mobile {
-        display: block;
-        background: dimgray;
-        padding: 5%;
-        margin-top: 10%;
-
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-
-    .footer-mobile ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .footer-mobile ul li {
-        margin: 2%;
-    }
-
-    .footer-mobile ul li a {
-        text-decoration: none;
-        color: black;
-    }
-
-
     .main-nav {
         display: none;
     }
 
-    /* ----- MOBILE NAVIGATION ---- */
+    /*---------------------------------------------------------*/
+    /*---------------------MOBILE NAV TOGGLE-------------------*/
     #menuToggle {
         display: block;
         position: fixed;
@@ -157,7 +125,8 @@ nav.footer-nav ul li {
         opacity 0.55s ease;
     }
 
-    /* --- Hamburger menu icon transition--- */
+    /*---------------------------------------------------------*/
+    /*-------------------- MOBILE HAMBURGER -------------------*/
     #menuToggle span:first-child {
         transform-origin: 0 0;
     }
@@ -182,7 +151,8 @@ nav.footer-nav ul li {
         transform: rotate(-45deg) translate(0, -1px);
     }
 
-    /*This is the Menu part, which gets triggered by toggle*/
+
+    /*--- This is the Menu part, which gets triggered by toggle ---*/
     #menu {
         position: absolute;
         width: 90vw;
@@ -199,7 +169,8 @@ nav.footer-nav ul li {
         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
     }
 
-    /* --- List item styling --- */
+    /*---------------------------------------------------------*/
+    /*---------------------MOBILE ITEM STYLE-------------------*/
     #menu li {
         padding: 15px 0;
         color: var(--maroon-color);
@@ -223,4 +194,5 @@ nav.footer-nav ul li {
         transform: scale(1.0, 1.0);
         opacity: 1;
     }
+
 }

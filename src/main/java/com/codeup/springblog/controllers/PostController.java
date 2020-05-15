@@ -1,26 +1,25 @@
 package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.Post;
+import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.PostRepository;
+import com.codeup.springblog.repositories.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostController {
 
     // --------- INITIALIZE ------------
     private PostRepository postRepo;
+    private UserRepository userRepo;
 
-    // --------- CONSTRUCTOR METHOD ------------
-    public PostController(PostRepository postRepo) {
+    // ------------ CONSTRUCTOR METHOD ---------------
+    // --------- AKA DEPENDENCY INJECTION ------------
+    public PostController(PostRepository postRepo, UserRepository userRepo) {
         this.postRepo = postRepo;
+        this.userRepo = userRepo;
     }
 
     // --------- ALL POSTS VIEW ------------
@@ -28,6 +27,7 @@ public class PostController {
     public String getPosts(Model model) {
 
         model.addAttribute("posts", postRepo.findAll()); // Place all the ads on the page
+        model.addAttribute("page-title", "Blog");
 
         return "/posts/index";
     }
@@ -52,9 +52,10 @@ public class PostController {
     }
 
     @PostMapping("/posts/create") // 1. POST
-    public String createNewPost( @RequestParam(name = "title") String title, @RequestParam(name = "body") String body) {
+    public String createNewPost( @ModelAttribute Post post) {
 
-        Post post = new Post(title, body); // create a new post instance with title and body param
+        User tarynUser = new User(1, "taryniscool", "taryn@codeup.com", "password");
+        post.setUser(tarynUser);
 
         postRepo.save(post); // Save the new post
 

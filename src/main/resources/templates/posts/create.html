@@ -13,20 +13,26 @@
 <article class="main-container">
     <section class="section-container">
 
+        <h1 class="section-header">Create a New Post</h1>
+
         <!---------- NEW POST FORM ---------->
         <form method="post" th:action="@{/posts/create}" th:object="${post}">
+            <div class="post-title-input">
+                <label for="post-title">New Post Title</label>
+                <input th:field="*{title}" type="text" id="post-title" name="title">
+            </div>
+            <div class="post-body-input">
+                <label for="post-body">New Post Body</label>
+                <textarea th:field="*{body}" id="post-body" name="body"></textarea>
+            </div>
 
-            <label for="post-title">New Post Title</label>
-            <input  th:field="*{title}" type="text" id="post-title" name="title">
-
-            <label for="post-body">New Post Body</label>
-            <textarea th:field="*{body}" id="post-body" name="body"></textarea>
-
-            <button>Submit</button>
+            <button id="submit-btn">Submit</button>
 
         </form>
 
-        <a th:href="@{/posts/}"><button>Cancel</button></a>
+        <a th:href="@{/posts/}">
+            <button id="cancel-btn">Cancel</button>
+        </a>
 
 
     </section>
