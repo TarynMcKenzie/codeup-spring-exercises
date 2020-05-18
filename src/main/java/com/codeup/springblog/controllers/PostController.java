@@ -4,6 +4,7 @@ import com.codeup.springblog.models.Post;
 import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
+import com.codeup.springblog.services.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +15,14 @@ public class PostController {
     // --------- INITIALIZE ------------
     private PostRepository postRepo;
     private UserRepository userRepo;
+//    private EmailService emailService;
 
     // ------------ CONSTRUCTOR METHOD ---------------
     // --------- AKA DEPENDENCY INJECTION ------------
-    public PostController(PostRepository postRepo, UserRepository userRepo) {
+    public PostController(PostRepository postRepo, UserRepository userRepo, EmailService emailService) {
         this.postRepo = postRepo;
         this.userRepo = userRepo;
+//        this.emailService = emailService;
     }
 
     // --------- ALL POSTS VIEW ------------
@@ -57,6 +60,7 @@ public class PostController {
         User tarynUser = new User(1, "taryniscool", "taryn@codeup.com", "password");
         post.setUser(tarynUser);
 
+//        emailService.prepareAndSend(post, "New Post Email Service Title", "The body" );
         postRepo.save(post); // Save the new post
 
         return "redirect:/posts";

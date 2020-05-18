@@ -29,6 +29,17 @@
     margin: 0 1% 0 0;
 }
 
+#back-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5%;
+}
+#back-section svg{
+    margin: 0 1% 0 0 ;
+    transform: rotate(180deg);
+}
+
 .section-header {
     width: 70%;
     margin: 2% 0;
