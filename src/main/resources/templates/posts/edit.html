@@ -16,16 +16,20 @@
         <!---------- NEW POST FORM ---------->
         <form method="POST" th:action="@{'/posts/' + ${post.getId()} + '/edit'}" th:object="${post}">
 
+            <!---------- POST TITLE ---------->
             <label for="title">Edit Post Title</label>
             <input type="text" id="title" name="title" th:value="${post.title}">
 
+            <!---------- POST BODY ---------->
             <label for="body">Edit Post Body</label>
             <textarea id="body" name="body" th:text="${post.body}"></textarea>
 
+            <!---------- POST SUBMIT ---------->
             <button type="submit">Submit</button>
 
         </form>
 
+        <!---------- POST CANCEL ---------->
         <a th:href="@{/posts/}"><button>Cancel</button></a>
     </section>
 </article>

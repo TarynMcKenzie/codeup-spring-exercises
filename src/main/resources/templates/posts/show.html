@@ -14,23 +14,34 @@
     <!---------- POST CONTAINER ---------->
     <section class="section-container">
 
+        <!---------- POST ---------->
         <div th:object="${currentPost}">
 
+            <!---------- POST HEADER ---------->
             <h1 class="section-header" th:text="${currentPost.title}"></h1>
 
+            <!---------- POST DETAILS ---------->
             <p id="author">Written by <strong th:text="${currentPost.getUser().getUsername()}"></strong></p>
             <p id="published">Published on <strong th:text="${currentPost.getUser().getUsername()}"></strong></p>
 
+            <!---------- POST BODY ---------->
             <div id="content-body">
-                <p th:text="${currentPost.body}"></p>
+                <p class="post-body" th:utext="${#strings.replace( #strings.escapeXml( currentPost.body ),T(java.lang.System).getProperty('line.separator'),'&lt;br /&gt;')}"></p>
             </div>
+
+            <!---------- POST ID ---------->
             <p>Post id: <em th:text="${currentPost.id}"></em></p>
 
 
+            <!---------- POST UPDATE BUTTONS ---------->
             <div id="button-group" sec:authorize="isAuthenticated()">
+
+                <!---------- POST EDIT ---------->
                 <form method="get" th:action="@{'/posts/' + ${currentPost.getId()} + '/edit'}">
                     <button type="submit" id="edit-btn">edit</button>
                 </form>
+
+                <!---------- POST DELETE ---------->
                 <form method="post" th:action="@{'/posts/' + ${currentPost.getId()} + '/delete'}">
                     <button type="submit" id="delete-btn">delete</button>
                 </form>
@@ -38,6 +49,9 @@
         </div>
 
     </section>
+
+
+    <!---------- BACK TO ALL POSTS ---------->
     <section class="section-container">
         <a th:href="@{/posts/}" id="back-section">
             <svg id="graphic-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
