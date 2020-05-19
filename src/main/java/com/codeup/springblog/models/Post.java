@@ -79,4 +79,5 @@ public class Post { // a single post bean
     public void setUser(User user) {
         this.user = user;
     }
+
 }

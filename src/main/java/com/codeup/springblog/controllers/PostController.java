@@ -26,7 +26,7 @@ public class PostController {
 //        this.emailService = emailService;
     }
 
-    // --------- ALL POSTS VIEW ------------
+    // --------- ALL POSTS VIEW (READ) ------------
     @GetMapping("/posts") // 1. GET
     public String getPosts(Model model) {
 
@@ -36,7 +36,7 @@ public class PostController {
         return "/posts/index";
     }
 
-    // --------- INDIVIDUAL POST VIEW ------------
+    // --------- INDIVIDUAL POST VIEW (READ) ------------
     @GetMapping("/posts/{id}") // 1. GET
     public String getPostById(@PathVariable long id, Model model) {
 
