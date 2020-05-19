@@ -94,6 +94,13 @@ a.post-title-link:hover::after {
     color: var(--maroon-color);
 }
 
+#content-body{
+    width: 60%;
+    margin: 5% 0 5% 0;
+    font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+    /*font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));*/
+}
+
 /* Style that first letter! */
 .post-body:first-child:first-letter {
     initial-letter: 2; /* How many lines the letter with take up */
