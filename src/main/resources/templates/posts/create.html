@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="partials :: head">
     <meta charset="UTF-8">
     <title>Create</title>
@@ -11,7 +11,7 @@
 <nav th:replace="partials :: navbar-mobile"></nav>
 
 <article class="main-container">
-    <section class="section-container">
+    <section class="section-container" sec:authorize="isAuthenticated()">
 
         <h1 class="section-header">Create a New Post</h1>
 

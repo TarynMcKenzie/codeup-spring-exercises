@@ -40,6 +40,15 @@ public class User { // a single user bean
     public User() {
     }
 
+    // ----- COPY CONSTRUCTOR ----
+    public User(User copy) { //  It is used as an alternative to cloning an object
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
+    //----------------------------
+
     public User(long id, String username, String email, String password) {
         this.id = id;
         this.username = username;

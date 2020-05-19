@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="partials :: head">
     <meta charset="UTF-8">
     <title>Show Post</title>
@@ -27,7 +27,7 @@
             <p>Post id: <em th:text="${currentPost.id}"></em></p>
 
 
-            <div id="button-group">
+            <div id="button-group" sec:authorize="isAuthenticated()">
                 <form method="get" th:action="@{'/posts/' + ${currentPost.getId()} + '/edit'}">
                     <button type="submit" id="edit-btn">edit</button>
                 </form>
