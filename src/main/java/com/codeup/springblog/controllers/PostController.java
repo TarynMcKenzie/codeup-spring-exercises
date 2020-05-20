@@ -34,7 +34,7 @@ public class PostController {
         model.addAttribute("posts", postRepo.findAll()); // Place all the ads on the page
         modelMap.addAttribute("page-title", "Blog");
 
-        return "/posts/index";
+        return "posts/index";
     }
 
     // --------- INDIVIDUAL POST VIEW (READ) ------------
@@ -46,7 +46,7 @@ public class PostController {
         String postTitle = postRepo.getPostById(id).getTitle();
         modelMap.addAttribute("page-title", postTitle);
 
-        return "/posts/show";
+        return "posts/show";
     }
 
 
@@ -56,7 +56,7 @@ public class PostController {
 
         model.addAttribute("post", new Post());
 
-        return "/posts/create";
+        return "posts/create";
     }
 
     @PostMapping("/posts/create") // 1. POST
@@ -80,7 +80,7 @@ public class PostController {
         Post post = postRepo.getPostById(id);
         model.addAttribute("post", post);
 
-        return "/posts/edit";
+        return "posts/edit";
     }
 
     @PostMapping("/posts/{id}/edit") // 1. POST
