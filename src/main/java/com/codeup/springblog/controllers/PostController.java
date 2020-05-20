@@ -8,6 +8,7 @@ import com.codeup.springblog.services.EmailService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -28,19 +29,22 @@ public class PostController {
 
     // --------- ALL POSTS VIEW (READ) ------------
     @GetMapping("/posts") // 1. GET
-    public String getPosts(Model model) {
+    public String getPosts(Model model, ModelMap modelMap) {
 
         model.addAttribute("posts", postRepo.findAll()); // Place all the ads on the page
-        model.addAttribute("page-title", "Blog");
+        modelMap.addAttribute("page-title", "Blog");
 
         return "/posts/index";
     }
 
     // --------- INDIVIDUAL POST VIEW (READ) ------------
     @GetMapping("/posts/{id}") // 1. GET
-    public String getPostById(@PathVariable long id, Model model) {
+    public String getPostById(@PathVariable long id, Model model, ModelMap modelMap) {
 
         model.addAttribute("currentPost", postRepo.getOne(id)); // find the ad by its id
+
+        String postTitle = postRepo.getPostById(id).getTitle();
+        modelMap.addAttribute("page-title", postTitle);
 
         return "/posts/show";
     }

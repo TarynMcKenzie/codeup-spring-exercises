@@ -25,12 +25,12 @@
             <textarea id="body" name="body" th:text="${post.body}"></textarea>
 
             <!---------- POST SUBMIT ---------->
-            <button type="submit">Submit</button>
+            <button type="submit" id="submit-btn">Submit</button>
 
         </form>
 
         <!---------- POST CANCEL ---------->
-        <a th:href="@{/posts/}"><button>Cancel</button></a>
+        <a th:href="@{/posts/}"><button id="cancel-btn">Cancel</button></a>
     </section>
 </article>
 
